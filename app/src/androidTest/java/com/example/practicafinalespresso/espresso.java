@@ -17,13 +17,19 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
-
+/**
+ * <p>Esta clase se encarga del testeo a traves de Espresso</p>
+ */
 public class espresso {
 
     @Rule
     public ActivityTestRule<MainActivity> mainActivityActivityTestRule =
             new ActivityTestRule<>(MainActivity.class);
 
+    /**
+     * <p>Aqui se hacen una serie de comprobaciones de pasar de millas a kilometros</p>
+     * <p>Hay 2 arrays y un for para no tener que repetir la misma sentencia muchas veces</p>
+     */
     @Test
     public void millasAkms()
     {
@@ -39,6 +45,10 @@ public class espresso {
         }
     }
 
+    /**
+     * <p>Aqui se hacen una serie de comprobaciones de pasar de kilometros a millas</p>
+     * <p>Hay 2 arrays y un for para no tener que repetir la misma sentencia muchas veces</p>
+     */
     @Test
     public void kmsAmillas()
     {
@@ -55,6 +65,10 @@ public class espresso {
         }
     }
 
+    /**
+     * <p>Aqui se hacen una serie de comprobaciones de pasar de celsius a Fahrenheit</p>
+     * <p>Hay 2 arrays y un for para no tener que repetir la misma sentencia muchas veces</p>
+     */
     @Test
     public void celsiusAFahrenheit()
     {
@@ -70,7 +84,10 @@ public class espresso {
             Espresso.onView(withId(R.id.original)).perform(clearText());
         }
     }
-
+    /**
+     * <p>Aqui se hacen una serie de comprobaciones de pasar de fahrenheit a Celsius</p>
+     * <p>Hay 2 arrays y un for para no tener que repetir la misma sentencia muchas veces</p>
+     */
     @Test
     public void fahrenheitACelsius()
     {
