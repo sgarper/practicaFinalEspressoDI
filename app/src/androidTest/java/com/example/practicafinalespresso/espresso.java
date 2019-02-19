@@ -8,6 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
@@ -23,29 +24,68 @@ public class espresso {
     public ActivityTestRule<MainActivity> mainActivityActivityTestRule =
             new ActivityTestRule<>(MainActivity.class);
 
-    /*@Test
-    public void resetear() {
-        Espresso.onView(withId(R.id.buttonReset)).perform(click());
-        Espresso.onView(withId(R.id.textoOriginal)).check(matches(withText("Limpiado")));
+    @Test
+    public void millasAkms()
+    {
+        String [] kms={"1.60934","160.934","32.1868","-160.934","12.87472"};
+        String [] millas={"1","100","20","-100","8"};
 
-
+        for(int i=0;i<kms.length;i++)
+        {
+            Espresso.onView(withId(R.id.original)).perform(typeText(millas[i]), closeSoftKeyboard());
+            Espresso.onView(withId(R.id.millas)).perform(click());
+            Espresso.onView(withId(R.id.resultado)).check(matches(withText(kms[i])));
+            Espresso.onView(withId(R.id.original)).perform(clearText());
+        }
     }
 
     @Test
-    public void pruebaCambiar(){
+    public void kmsAmillas()
+    {
 
-        Espresso.onView(withId(R.id.textoOriginal)).perform(typeText("HolaMundo"), closeSoftKeyboard());
-        Espresso.onView(withId(R.id.buttonCambiar)).perform(click());
-        Espresso.onView(withId(R.id.resultado)).check(matches(withText("HolaMundo")));
+        String [] kms={"1.60934","160.934","32.1868","-160.934","12.87472"};
+        String [] millas={"1.0","100.0","20.0","-100.0","8.0"};
 
+        for(int i=0;i<millas.length;i++)
+        {
+            Espresso.onView(withId(R.id.original)).perform(typeText(kms[i]), closeSoftKeyboard());
+            Espresso.onView(withId(R.id.kms)).perform(click());
+            Espresso.onView(withId(R.id.resultado)).check(matches(withText(millas[i])));
+            Espresso.onView(withId(R.id.original)).perform(clearText());
+        }
     }
 
     @Test
-    public void pruebaAceptar(){
-        Espresso.onView(withId(R.id.textoOriginal)).perform(typeText("Prueba Texto"), closeSoftKeyboard());
-        Espresso.onView(withId(R.id.buttonAceptar)).perform(click());
-        Espresso.onView(withId(R.id.textoNuevo)).check(matches(withText("Prueba Texto")));
+    public void celsiusAFahrenheit()
+    {
 
-    }*/
+        String [] Fahrenheit={"32.0","212.0","68.0","-148.0","46.4"};
+        String [] celsius={"0","100","20","-100","8"};
+
+        for(int i=0;i<Fahrenheit.length;i++)
+        {
+            Espresso.onView(withId(R.id.original)).perform(typeText(celsius[i]), closeSoftKeyboard());
+            Espresso.onView(withId(R.id.f)).perform(click());
+            Espresso.onView(withId(R.id.resultado)).check(matches(withText(Fahrenheit[i])));
+            Espresso.onView(withId(R.id.original)).perform(clearText());
+        }
+    }
+
+    @Test
+    public void fahrenheitACelsius()
+    {
+
+        String [] Fahrenheit={"32","212","68","-148","46.4"};
+        String [] celsius={"0.0","100.0","20.0","-100.0","8.0"};
+
+        for(int i=0;i<celsius.length;i++)
+        {
+            Espresso.onView(withId(R.id.original)).perform(typeText(Fahrenheit[i]), closeSoftKeyboard());
+            Espresso.onView(withId(R.id.c)).perform(click());
+            Espresso.onView(withId(R.id.resultado)).check(matches(withText(celsius[i])));
+            Espresso.onView(withId(R.id.original)).perform(clearText());
+        }
+    }
+
 
 }
