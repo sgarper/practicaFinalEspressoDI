@@ -1,6 +1,7 @@
 package com.example.practicafinalespresso;
 
 /**
+ * @author Sergio
  * <p>En esta clase se encuentran todos los metodos de conversion</p>
  *
  */

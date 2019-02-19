@@ -8,7 +8,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-EditText original;
+    /**
+     * @author Sergio
+     * <p>Declaracion de variables</p>
+     */
+    EditText original;
 Button kms,millas,f,c;
 TextView resultado;
 
@@ -17,6 +21,9 @@ TextView resultado;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /**
+         * <p></p>
+         */
         original=findViewById(R.id.original);
         kms=findViewById(R.id.kms);
         millas=findViewById(R.id.millas);

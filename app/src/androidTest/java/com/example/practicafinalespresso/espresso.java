@@ -18,6 +18,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 /**
+ * @author Sergio
  * <p>Esta clase se encarga del testeo a traves de Espresso</p>
  */
 public class espresso {
